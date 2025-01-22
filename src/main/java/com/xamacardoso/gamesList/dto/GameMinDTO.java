@@ -1,6 +1,7 @@
 package com.xamacardoso.gamesList.dto;
 
 import com.xamacardoso.gamesList.entities.Game;
+import com.xamacardoso.gamesList.projections.GameMinProjection;
 
 public class GameMinDTO {
     private Long id;
@@ -10,6 +11,14 @@ public class GameMinDTO {
     private String shortDescription;
 
     public GameMinDTO() {
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        this.id = projection.getId();
+        this.title = projection.getTitle();
+        this.year = projection.getYear();
+        this.imgUrl = projection.getImgUrl();
+        this.shortDescription = projection.getShortDescription();
     }
 
     public GameMinDTO(Game game) {
